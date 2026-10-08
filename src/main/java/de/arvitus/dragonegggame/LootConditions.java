@@ -41,7 +41,7 @@ public class LootConditions {
 
         @Override
         public boolean test(LootContext context) {
-            Entity entity = context.getOptional(LootContextParams.THIS_ENTITY);
+            Entity entity = context.getOptionalParameter(LootContextParams.THIS_ENTITY);
             Data data = DragonEggAPI.getData();
             if (entity instanceof ServerPlayer player && data != null)
                 return player.getUUID().equals(data.playerUUID);
@@ -60,7 +60,7 @@ public class LootConditions {
 
         @Override
         public boolean test(LootContext context) {
-            Entity entity = context.getOptional(LootContextParams.THIS_ENTITY);
+            Entity entity = context.getOptionalParameter(LootContextParams.THIS_ENTITY);
             Data data = DragonEggAPI.getData();
             if (entity != null && data != null && data.world != null)
                 return entity.position().closerThan(data.getPosition(), CONFIG.nearbyRange);

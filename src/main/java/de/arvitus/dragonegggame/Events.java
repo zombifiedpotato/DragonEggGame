@@ -12,7 +12,6 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.TickTask;
-import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -158,7 +157,7 @@ public class Events {
             if (!world.isClientSide()) {
                 world.removeBlock(hitResult.getBlockPos(), false);
                 ItemStack egg = Items.DRAGON_EGG.getDefaultInstance();
-                if (!player.getInventory().add(egg)) player.drop(egg, false, Prediction.SERVER_ONLY);
+                if (!player.getInventory().add(egg)) player.drop(egg, false);
             }
             return InteractionResult.SUCCESS;
         });
